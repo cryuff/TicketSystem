@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flag: false
+  s: MyString
+  Assignment: MyString
+  flag: false
+  spot_id: 1
+  ticket_id: 1
+
+two:
+  flag: false
+  s: MyString
+  Assignment: MyString
+  flag: false
+  spot_id: 1
+  ticket_id: 1

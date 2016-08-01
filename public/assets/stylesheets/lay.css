@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+}
+html {
+	font-size: 24px;
+}
+body {
+	background-color: #F9F9F9;
+	font-family: 'Montserrat', sans-serif;
+}
+div.site {
+	width: 100%;
+	margin: 40px auto;
+}
+div.header {
+	background-image: url('/assets/header.jpg');
+	background-color: #fff;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+div.logo{
+	width: 100%;
+	display: inline;
+	margin-left: 15%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+div.logo img{
+	width: 10%;
+}
+
+div.contact{
+	float: right;
+	margin-top: 2%;
+	margin-right: 15%;
+	font-size: 24px;
+	text-align: center;
+	color: #555555;
+}
+
+div.contact h2{
+	font-size: 15px;
+}
+
+div.content {
+	color: #555555;
+	width: 80%;
+	padding: 10px 10% 10px 10%;
+}
+
+div.footer {
+	background-color: #DBDBDB;
+	width: 100%;
+
+}
+
+div.footer p {
+	color: #555555;
+	padding-left: 80%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.bot {
+	color:#555555;
+	font-size: 14px;
+}
+
+.poster, .title, .description, .director, .length, .genre{
+	border: 1px solid #bbb; 
+}
+
+.buttbuy {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #DE5648;
+	display: inline-block;
+	width: 100%;
+	margin-left: 30%;
+	text-align: center;
+
+}
+
+.buttbuy:hover {
+	background-color: #555555;
+	-ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari */
+    transform: scale(1.2);
+}
+
+.buttbuy a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+/* Media */
+
+@media screen and (max-width: 1000px) {
+	div.logo img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    transform: scale(2);
+}
+
+div.contact{
+	display: none;
+}
+
+}
+
+@media screen and (max-width: 715px) {
+.description{
+	display: none;
+}
+}
+
+@media screen and (max-width: 565px) {
+.length, .genre{
+	display: none;
+}
+div.footer p{
+	padding-left: 0%;
+	text-align: center;
+}
+}
+
+@media screen and (max-width: 400px) {
+.director{
+	display: none;
+}
+.buttbuy {
+
+	margin-left: 5%;
+
+}
+}
+
+@media screen and (max-width: 320px) {
+.poster{
+	display: none;
+}
+}

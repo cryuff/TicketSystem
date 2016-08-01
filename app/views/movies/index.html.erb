@@ -1,0 +1,88 @@
+<div class='container'>
+      <div class='row well well-lg'>
+        <div class='col-md-6'>
+          <h2>What's your favorite movie?</h2>
+          <p class='lead'>Watch them all in IMAX quality!</p>
+        </div>
+        <div class='col-md-6 visible-md visible-lg'>
+          <section id='carousel' class='hidden-xs'>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="http://star98radio.com/wp-content/uploads/2011/06/900x300_avengers.jpg" alt="...">
+      <div class="carousel-caption">
+  
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://thinklaughcry.com/wp-content/uploads/2015/12/star-wars-the-force-awakens-poster-horizontal-900x300.jpg" alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://thinklaughcry.com/wp-content/uploads/2015/12/Disneys-Tomorrowland-Movie-Poster-2-900x300.jpg" alt="...">
+    </div>
+  </div>
+
+</div>
+
+
+
+</section>
+</div>
+</div>
+</div>
+
+<div class='movies'>
+<div class="container text-center well">
+    <div class="row">
+    <% @movies.take(6).each do |movie| %>
+        <div class="col-md-2">
+          <ul class='list-unstyled list-group'>
+            <li class="list-group-item"><%= image_tag movie.poster.url(:thumb), :class=>'img-responsive' %></li>
+            <li class="list-group-item"><%= movie.title %></li>
+            <li class="list-group-item"><%= movie.genre.name %></li>
+            <li class="list-group-item"><%= link_to "<button class='btn btn-primary'>Read more</button>".html_safe, movie %></li>
+          </ul>
+        </div> 
+    <% end %>
+  </div>
+</div>
+</div>
+
+<div class='seances'>
+  <div class="container well">
+    <div class="col-md-12">
+    <ul class='list-unstyled list-group'>
+    <% @moviesall.each do |movie| %>
+      <% @flag = false %>
+      <% movie.seances.each do |seance| %>
+        <% if seance.date.day == Date.today.day && seance.date.month == Date.today.month %>
+          <% @flag = true %>
+          <%break%>
+        <%end%>
+      <%end%>
+      <% if @flag ==true %>
+      <li class="list-group-item"><%= movie.title %>:</span>
+        <% movie.seances.each do |seance| %>
+          <% if seance.date.day == Date.today.day && seance.date.month == Date.today.month %>
+          <%= link_to "<button class='btn btn-primary'> #{seance.date.to_s(:time)}</button>".html_safe, movie, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+          <%end%>
+        <%end%>
+      </li>
+      <%end%>
+    <%end%>
+    </ul>
+    </div> 
+  </div>
+</div>

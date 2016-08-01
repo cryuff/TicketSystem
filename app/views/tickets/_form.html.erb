@@ -1,0 +1,80 @@
+<% @checkint = false %>
+<% @spox = Array.new %>
+<% @seance.tickets.each do |ticket| %>
+      <% @seance.hall.spots.each do |spott| %>
+        <% if ticket.spot_id == spott.id %>
+          <% @spox.push(spott) %>
+          <% break %>
+        <%end%>
+      <%end%>
+<%end%>
+
+<section id='formticket'>
+  <div class='container well form-horizontal'>
+    <div class='row'>
+      <div class='col-md-4'>
+  <%= form_for [@movie, @seance, @ticket], :html => {:class => 'form-horizontal'} do |f|  %>
+
+
+
+  <%= f.fields_for :customer do |builder|%>
+
+  <div class="form-group">
+    <%= builder.label :name %>
+    <%= builder.text_field :name, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= builder.label :surname %>
+    <%= builder.text_field :surname, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= builder.label :email %>
+    <%= builder.text_field :email, :class=>'form-control' %>
+  </div>
+
+  <%end%>
+
+  <div class='checkbox form-inline'>
+    <label>
+    <%= f.check_box :reducedprice %>
+    Reduced price?</label>
+    <%= f.label :spot_id %>
+    <%= f.collection_select :spot_id, @seance.hall.spots-@spox, :id, :row_with_column %>
+  </div>
+</br></br>
+  <div>
+    <%= f.submit :class=>"form-control btn btn-info" %>
+  </div>
+
+  <% end %>
+</div>
+
+    <div class="col-md-7 col-md-offset-1">
+  <ul class='list-unstyled list-group'>
+    <li class='list-group-item'>
+    <%= @seance.hall.spots.first.column %>
+    <% @seance.hall.spots.each do |spot| %>
+      <% @spox.each do |spox| %>
+        <% if spot.id == spox.id %>
+          <% @checkint = true %>
+        <%end%>
+      <%end%>
+      <%if @checkint == true %>
+        <div class="spot text-center"><%= spot.row %></div>
+      <%else%>
+        <div class="spot green text-center"> <%= spot.row %> </div>
+      <%end%>
+      <% if spot.next!=nil && spot.column!=spot.next.column%>
+        </li><li class='list-group-item'><%=spot.next.column%>
+      <%end%>
+      <% @checkint = false %>
+    <%end%>
+    </li>
+    </ul>
+</div>
+</div></div>
+
+</section>
+

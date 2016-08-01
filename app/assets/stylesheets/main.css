@@ -1,0 +1,81 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 320px;
+  font-family: 'Open Sans', sans-serif;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 220px;
+  background-color: #333;
+  color: #efefef;
+  padding: 30px 0;
+}
+
+@media only screen and (max-width: 768px) {
+  body { margin-bottom: 400px; }
+  .footer { height: 400px; }
+}
+.footer a {
+  color: #639bcf;
+}
+.footer a:hover {
+  color: #d8e6f3;
+}
+
+
+body {
+	background-color: hsl(0, 0%, 93%);
+	background-image: url('/assets/newy.png');
+  	font-family: 'Open Sans', sans-serif;
+
+}
+
+.spot {
+	display : inline-block;
+	border: 2px;
+	width: 5%;
+	height: 50%;
+	background-color: red;
+	border-radius: 2px;
+}
+
+.spot:hover {
+	opacity: 0.5;
+}
+
+.green {
+	background-color: green;
+}
+
+.mem
+{
+     float: left;
+
+}
+
+/*Header*/
+
+/* Navigation */
+.navbar {
+  background-color: rgb(51,122,183);
+}
+.navbar a {
+  color: #d8e6f3;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: #fff;
+}
+
+.seances .container {
+	margin-bottom: 100px;
+}
